@@ -8,7 +8,7 @@ const Login: React.FC = () => {
 
   return (
     <div className="login-container">
-        <img src={LogoDasavena} className="logo-user" />
+      <img src={LogoDasavena} className="logo-user" />
       <div className="login-box">
         <h2 className="login-title">Iniciar Sesión</h2>
         <form>
@@ -25,7 +25,7 @@ const Login: React.FC = () => {
           </div>
 
           <div className="input-container">
-          <label htmlFor="password">Contraseña</label>
+            <label htmlFor="password">Contraseña</label>
             <input
               type="password"
               id="password"
