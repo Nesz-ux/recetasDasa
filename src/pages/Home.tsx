@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import "../assets/styles/HomeStyle.css";
 //import images
-import LogoDasavena from "../assets/images/LogoDasavena.png";
+import LogoDasavena from "../assets/icons/LogoDasavena.png";
 import sun from "../assets/images/sun.webp";
 import moon from "../assets/images/moon.webp";
 
@@ -33,7 +33,7 @@ const Home: React.FC = () => {
   return (
     <div className={`container ${darkMode ? "dark-mode" : "light-mode"}`}>
       <div className="title-container">
-        <img src={LogoDasavena} alt="Logo Da Savena" className="logo" />
+        <img src={LogoDasavena} alt="LogoDasavena"  />
         <h1 className="title">Recetas Dasavena</h1>
       </div>
 
@@ -57,6 +57,15 @@ const Home: React.FC = () => {
       {favorites.length > 0 && (
         <div className="favorite-section">
             <h2>Favoritos</h2>
+            <div className="grid">
+              {favorites.map((app, index) => (
+                <div key={index} className="favorite-item">
+                  <img src={app.image} alt={app.title} />
+                  <h3>{app.title}</h3>
+                  <p>{app.description}</p>
+                </div>
+              ))}
+            </div>
         </div>
       )}
     </div>
