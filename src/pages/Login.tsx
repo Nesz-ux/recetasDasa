@@ -9,7 +9,6 @@ const Login: React.FC = () => {
   const [password, setPassword] = useState<string>("");
   const navigate = useNavigate();
 
-
   //Llamada a Servidor y BD
   const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

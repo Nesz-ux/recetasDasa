@@ -1,115 +1,80 @@
 @font-face {
-    font-family: "Veneer";
-    src: url("../fonts/Veneer.ttf") format("truetype");
-  }
-  
-  .container {
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .light-mode {
-    background-color: #f0f0f0;
-    color: #333;
-  }
-  
-  .dark-mode {
-    background-color: #242424;
-    color: white;
-  }
-  
-  .title {
-    font-family: "Veneer", sans-serif;
-    font-weight: 800;
-    font-size: 3rem;
-    margin-bottom: 30px;
-    margin-left: 7px;
-    transition: color 0.3s ease;
-  }
-  .light-mode .title {
-    color: #333;
-  }
-  .dark-mode .title {
-    color: #fff;
-  }
-  
-  .title-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    width: 100%;
-  }
-  
-  @media (max-width: 980px) {
-    .grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .grid {
-      grid-template-columns: 1fr;
-    }
-  }
-  
-  
-  
-  .input-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-  }
-  
-  .btn-change-mode {
-    background-color: #f9f9f9;
-    color: black;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    border-radius: 20px;
-    transition: background-color 0.3s ease;
-    margin-left: 10px;
-    height: 45px;
-    width: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .btn-change-mode:hover {
-    background-color: #ccc;
-    border: 1px solid #aaa;
-  }
-  
-  .dark-mode .btn-change-mode {
-    background-color: #333;
-    color: white;
-    border: 1px solid #666;
-  }
-  
-  .dark-mode .btn-change-mode:hover {
-    background-color: #444;
-    border: 1px solid #ccc;
-  }
-  
-  .no-results {
-    display: flex;
-    justify-content: center;
-    font-size: 1.5rem;
-    color: #666;
-  }
+  font-family: "Veneer";
+  src: url("../fonts/Veneer.ttf") format("truetype");
+}
 
-  
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.light-mode {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.dark-mode {
+  background-color: #242424;
+  color: white;
+}
+
+.title {
+  font-family: "Veneer", sans-serif;
+  font-weight: 800;
+  font-size: 3rem;
+  margin-bottom: 30px;
+  margin-left: 7px;
+  transition: color 0.3s ease;
+}
+.light-mode .title {
+  color: #333;
+}
+.dark-mode .title {
+  color: #fff;
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+@media (max-width: 980px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.no-results {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #666;
+}

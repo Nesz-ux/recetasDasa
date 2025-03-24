@@ -42,7 +42,7 @@
   color: #333;
   font-weight: 500;
   font-size: 1.2rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 700;
 }
 
@@ -55,7 +55,7 @@
   color: black;
   width: 100%;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .input-login:focus {
@@ -74,7 +74,7 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-top: 15px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .login-btn:hover {
