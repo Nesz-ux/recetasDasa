@@ -3,11 +3,6 @@
     src: url("../fonts/Veneer.ttf") format("truetype");
   }
   
-  @font-face {
-    font-family: "ThirstyRoughRegTwo";
-    src: url("../fonts/ThirstyRoughRegTwo.otf") format("truetype");
-  }
-  
   .container {
     max-width: 100%;
     margin: 0 auto;
@@ -71,42 +66,7 @@
     }
   }
   
-  .search-bar {
-    font-family: "Poppins", sans-serif;
-    width: 80%;
-    max-width: 400px;
-    padding: 10px;
-    margin-bottom: 35px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    font-size: 1rem;
-    outline: none;
-    transition: background-color 0.3s ease, color 0.3s ease,
-      border-color 0.3s ease;
-  }
   
-  .light-mode .search-bar {
-    background-color: #f9f9f9;
-    color: #333;
-  }
-  
-  .dark-mode .search-bar {
-    background-color: #333;
-    color: white;
-    border-color: #666;
-  }
-  
-  .light-mode .search-bar:focus {
-    border-color: #fff;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    font-weight: 500;
-  }
-  
-  .dark-mode .search-bar:focus {
-    border-color: #fff;
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-    font-weight: 500;
-  }
   
   .input-container {
     display: flex;
@@ -151,9 +111,5 @@
     font-size: 1.5rem;
     color: #666;
   }
-  
-  .favorite-section {
-    font-family: "Lexend", sans-serif;
-    margin-bottom: 50px;
-  }
+
   
