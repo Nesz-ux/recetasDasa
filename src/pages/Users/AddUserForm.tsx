@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-//import { useNavigate } from "react-router-dom";
-import "../assets/styles/AddUserStyle.css";
-import { API_BASE_URL } from "../utils/config";
+import { useNavigate } from "react-router-dom";
+import "../../assets/styles/AddUserStyle.css";
+import { API_BASE_URL } from "../../utils/config";
 
 const AddUserForm: React.FC = () => {
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -46,6 +46,7 @@ const AddUserForm: React.FC = () => {
       if (response.ok) {
         console.log("Usuario creado exitosamente");
         alert("Usuario creado exitosamente");
+        navigate("/manage-user")
       } else {
         const errorData = await response.json();
         console.error("Error al crear el usuario: ", errorData);

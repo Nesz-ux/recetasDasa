@@ -1,0 +1,92 @@
+.user-table-container {
+  width: 110%;
+  overflow-x: auto;
+  margin-top: 50px;
+  display: flex;
+  align-content: flex-start;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 17px;
+  text-align: left;
+  min-width: 800px;
+  font-family: "Poppins", sans-serif;
+}
+
+.user-table thead tr {
+  background-color: #6a2c75;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+}
+
+.user-table th,
+.user-table td {
+  padding: 12px 15px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.user-table tbody tr {
+  border-bottom: 1px solid #888;
+}
+.user-table tbody tr:nth-of-type(even) {
+  background-color: #bba4c0;
+}
+
+.user-table tbody tr:last-of-type {
+  border-bottom: 2px solid #888;
+}
+
+.edit-buton,
+.delete-buton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+
+.edit-buton {
+  background-color: #d6a644;
+  color: #fff;
+}
+
+.delete-buton {
+  background-color: #aa4969;
+  color: #fff;
+}
+.edit-buton:hover,
+.delete-buton:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .user-table {
+    font-size: 16px;
+  }
+
+  .edit-buton,
+  .delete-buton {
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-table {
+    font-size: 14px;
+  }
+
+  .edit-buton,
+  .delete-buton {
+    padding: 5px 8px;
+  }
+}

@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import AddUserForm from "./pages/AddUserForm";
+import AddUserForm from "./pages/Users/AddUserForm";
+import ManageUsers from "./pages/Users/ManageUsers";
 import "./App.css";
 import { useEffect, useState } from "react";
 
@@ -27,6 +28,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/manage-user" element={<ManageUsers />} />
           <Route path="/add-user" element={<AddUserForm />} />
         </Routes>
       </div>

@@ -10,22 +10,19 @@ const Home: React.FC = () => {
 
   //Navegacion
   const handleAddUser = () => {
-    navigate("/add-user");
+    navigate("/manage-user");
   };
-
-  
 
   return (
     <div className="container">
       <div className="title-container">
         <img src={LogoDasavena} alt="LogoDasavena" />
         <h1 className="title">Información de Producto terminado</h1>
-       
       </div>
 
       <div className="input-container">
-        <button className="add-user" onClick={handleAddUser}>
-          Agregar Usuario
+        <button className="user-btn" onClick={handleAddUser}>
+          Administrar Usuarios
         </button>
       </div>
     </div>
