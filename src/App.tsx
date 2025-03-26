@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import AddUserForm from "./pages/Users/AddUserForm";
 import ManageUsers from "./pages/Users/ManageUsers";
+import EditUser from "./pages/Users/EditUser";
 import "./App.css";
 import { useEffect, useState } from "react";
 
@@ -30,6 +31,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/manage-user" element={<ManageUsers />} />
           <Route path="/add-user" element={<AddUserForm />} />
+          <Route path="/edit-user" element={<EditUser />} />
         </Routes>
       </div>
     </Router>

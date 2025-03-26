@@ -1,10 +1,19 @@
 .manage-users {
   justify-content: flex-start;
   padding: 20px;
-  margin-top: 30px;
+  margin-top: 90px;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.title-user {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: "Veneer", sans-serif;
+  font-size: 3rem;
+  color: #473524;
+  margin-top: -90px;
 }
 
 .header-section {
@@ -24,36 +33,58 @@
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  margin-bottom: -40px;
+  width: 200px;
 }
 
 .add-user-button:hover {
   opacity: 0.9;
 }
 
+.back-button {
+  background-color: #D6A644;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 15px;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1.1rem;
+  margin-bottom: -40px;
+  margin-right: 15px;
+  width: 200px;
+}
+
+.back-button:hover {
+  opacity: 0.9;
+}
+
 .datatable-section {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 @media (max-width: 768px) {
-    .manage-users {
-      padding: 15px;
-      margin-top: 80px;
-    }
-  
-    .datatable-section {
-      margin-top: 10px;
-    }
-  
-    .header-section {
-      flex-direction: column; /* Cambia la cabecera a un layout en columna */
-      align-items: flex-start; /* Centra los elementos de la cabecera */
-      text-align: center; /* Centra el texto de la cabecera */
-    }
-  
-    .add-user-button {
-      font-size: 16px; /* Mantén el texto legible en pantallas pequeñas */
-      text-align: center;
-    }
+  .manage-users {
+    padding: 15px;
+    margin-top: 80px;
   }
-  
+
+  .datatable-section {
+    margin-top: 10px;
+  }
+
+  .header-section {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: center;
+  }
+
+  .add-user-button {
+    font-size: 16px; 
+    text-align: center;
+  }
+}

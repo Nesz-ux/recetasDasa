@@ -5,11 +5,8 @@ import { API_BASE_URL } from "../../utils/config";
 //Import Styles
 import "./userTableStyle.css";
 //Import icons
-import * as FaIcons from "react-icons/fa";
-import * as MdIcons from "react-icons/md";
-import * as TbUser from "react-icons/tb"
-import * as TiIcons from "react-icons/ti"
-import * as LiaIcons from "react-icons/lia"
+import * as TbUser from "react-icons/tb";
+import * as TiIcons from "react-icons/ti";
 
 const userDatatable: React.FC = () => {
   interface User {
@@ -74,6 +71,10 @@ const userDatatable: React.FC = () => {
     }
   };
 
+  const handleEdit = (user: User) => {
+    navigate("/edit-user", { state: { user } });
+  };
+
   if (loading) {
     return <p>Cargando Usuarios</p>;
   }
@@ -105,7 +106,7 @@ const userDatatable: React.FC = () => {
                 <td>
                   <button
                     className="edit-buton"
-                    //onClick={}
+                    onClick={() => handleEdit(user)}
                   >
                     <TbUser.TbUserEdit size={25} />
                   </button>
