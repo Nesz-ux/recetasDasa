@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import ProductDataTable from "../../components/productTable/productTable";
 import "../../assets/styles/ManageUser.css";
 
 const ManageProduct: React.FC = () => {
@@ -23,7 +24,9 @@ const ManageProduct: React.FC = () => {
           Agregar Producto
         </button>
       </div>
-      <div className="datatable-section"></div>
+      <div className="datatable-section">
+        <ProductDataTable />
+      </div>
     </div>
   );
 };

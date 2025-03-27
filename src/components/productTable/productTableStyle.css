@@ -1,0 +1,93 @@
+.product-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 50px;
+  display: flex;
+  align-content: flex-start;
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+  text-align: left;
+  min-width: 900px;
+  font-family: "Poppins", sans-serif;
+}
+
+.product-table thead tr {
+  background-color: #473524;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+}
+
+.product-table th,
+.product-table td {
+  padding: 8px 15px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.product-table tbody tr {
+  border-bottom: 1px solid #888;
+}
+
+.product-table tbody tr:nth-of-type(even) {
+  background-color: #d7c9b9;
+  font-weight: 600;
+}
+
+.product-table tbody tr:last-of-type {
+  border-bottom: 3px solid #888;
+}
+
+.edit-btn,
+.delete-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+
+.edit-btn {
+  background-color: #d6a644;
+  color: #fff;
+}
+
+.delete-btn {
+  background-color: #aa4969;
+  color: #fff;
+}
+.edit-btn:hover,
+.delete-btn:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .product-table {
+    font-size: 16px;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-table {
+    font-size: 14px;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    padding: 5px 8px;
+  }
+}
