@@ -1,33 +1,31 @@
 import React from "react";
-import UserDatatable from "../../components/userTable/userTable";
 import { useNavigate } from "react-router-dom";
 import "../../assets/styles/ManageUser.css";
 
-const ManageUsers: React.FC = () => {
+const ManageProduct: React.FC = () => {
   const navigate = useNavigate();
-  const handleAddUser = () => {
-    navigate("/add-user");
-  };
 
+  //Navegacion
+  const handleAddProduct = () => {
+    navigate("/add-product");
+  };
   const handleBack = () => {
     navigate("/home");
   };
   return (
     <div className="manage-users">
-      <h2 className="title-user">Usuarios</h2>
+      <h2 className="title-user">Productos</h2>
       <div className="header-section">
         <button className="back-button" onClick={() => handleBack()}>
           Regresar
         </button>
-        <button className="add-user-button" onClick={() => handleAddUser()}>
-          Agregar Usuario
+        <button className="add-user-button" onClick={() => handleAddProduct()}>
+          Agregar Producto
         </button>
       </div>
-      <div className="datatable-section">
-        <UserDatatable />
-      </div>
+      <div className="datatable-section"></div>
     </div>
   );
 };
 
-export default ManageUsers;
+export default ManageProduct;

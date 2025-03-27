@@ -4,6 +4,8 @@ import Login from "./pages/Login";
 import AddUserForm from "./pages/Users/AddUserForm";
 import ManageUsers from "./pages/Users/ManageUsers";
 import EditUser from "./pages/Users/EditUser";
+import ManageProduct from "./pages/Product/ManageProduct";
+import AddProduct from "./pages/Product/AddProduct";
 import "./App.css";
 import { useEffect, useState } from "react";
 
@@ -32,6 +34,8 @@ function App() {
           <Route path="/manage-user" element={<ManageUsers />} />
           <Route path="/add-user" element={<AddUserForm />} />
           <Route path="/edit-user" element={<EditUser />} />
+          <Route path="/manage-product" element={<ManageProduct />} />
+          <Route path="/add-product" element={<AddProduct />} />
         </Routes>
       </div>
     </Router>

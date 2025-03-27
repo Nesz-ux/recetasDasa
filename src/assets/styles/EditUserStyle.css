@@ -8,7 +8,7 @@
   max-width: 500px;
   margin: 50px auto;
   padding: 20px;
-  background-color: #FFF;
+  background-color: #fff;
   border-radius: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-top: 30px;
@@ -58,35 +58,35 @@
 }
 
 .update-btn {
-    display: inline-block;
-    width: 100%;
-    padding: 10px;
-    background-color: #473524;
-    color: #fff;
-    font-family: "Poppins", sans-serif;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 30px;
-  }
+  display: inline-block;
+  width: 100%;
+  padding: 10px;
+  background-color: #473524;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 30px;
+}
 
-  .update-btn:hover {
-    opacity: 0.9;
-  }
+.update-btn:hover {
+  opacity: 0.9;
+}
 
 @media (max-width: 768px) {
-    .create-user {
-      width: 90%;
-      padding: 10px;
-    }
+  .create-user {
+    width: 90%;
+    padding: 10px;
   }
-  
-  @media (max-width: 480px) {
-    .create-user {
-      padding: 10px;
-      width: 90%;
-    }
+}
+
+@media (max-width: 480px) {
+  .create-user {
+    padding: 10px;
+    width: 90%;
   }
+}

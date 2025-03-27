@@ -8,7 +8,6 @@
   margin: 0 auto;
   padding: 20px;
   text-align: center;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
@@ -36,13 +35,6 @@
   margin-bottom: 10px;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  width: 100%;
-}
-
 .user-btn {
   padding: 8px 12px;
   margin: 0 5px;
@@ -51,29 +43,17 @@
   cursor: pointer;
   font-family: "Poppins", sans-serif;
   background-color: #473524;
+  width: 250px;
+  margin-bottom: 15px;
+}
+.product-btn {
+  padding: 8px 12px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  background-color: #473524;
+  width: 250px;
 }
 
-@media (max-width: 980px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.input-container {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-}
-
-.no-results {
-  display: flex;
-  justify-content: center;
-  font-size: 1.5rem;
-  color: #666;
-}

@@ -12,6 +12,9 @@ const Home: React.FC = () => {
   const handleAddUser = () => {
     navigate("/manage-user");
   };
+  const handleAddProduct = () => {
+    navigate("/manage-product");
+  };
 
   return (
     <div className="container">
@@ -19,12 +22,12 @@ const Home: React.FC = () => {
         <img src={LogoDasavena} alt="LogoDasavena" />
         <h1 className="title">Información de Producto terminado</h1>
       </div>
-
-      <div className="input-container">
-        <button className="user-btn" onClick={handleAddUser}>
+      <button className="user-btn" onClick={handleAddUser}>
           Administrar Usuarios
         </button>
-      </div>
+      <button className="product-btn" onClick={handleAddProduct}>
+          Agregar Producto
+        </button>
     </div>
   );
 };

@@ -5,13 +5,43 @@
 
 .create-user {
   width: 100%;
-  max-width: 500px;
+  max-width: 700px;
   margin: 50px auto;
   padding: 20px;
   background-color: #fff;
   border-radius: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-top: 30px;
+}
+.container-product {
+  max-width: 100%;
+  width: 450px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.create-product {
+  width: 100%;
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+}
+
+.create-product h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: "Veneer", sans-serif;
+  font-size: 2rem;
+  color: #000;
 }
 
 .create-user h2 {
@@ -29,11 +59,11 @@
 }
 .create-user-form .form-group label {
   display: block;
-    margin-bottom: 5px;
-    color: #000;
-    text-align: left;
-    font-weight: bold;
-    margin-left: 5px;
+  margin-bottom: 5px;
+  color: #000;
+  text-align: left;
+  font-weight: bold;
+  margin-left: 5px;
 }
 
 .create-user-form .form-group input,
@@ -51,7 +81,7 @@
 
 .create-user-form .form-group input:hover,
 .create-user-form .form-group select:focus {
-  border-color: #BBA4C0;
+  border-color: #bba4c0;
   outline: none;
   box-shadow: 0 0 5px rgba(194, 135, 228, 0.5);
 }

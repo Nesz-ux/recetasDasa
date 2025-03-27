@@ -46,7 +46,7 @@ const AddUserForm: React.FC = () => {
       if (response.ok) {
         console.log("Usuario creado exitosamente");
         alert("Usuario creado exitosamente");
-        navigate("/manage-user")
+        navigate("/manage-user");
       } else {
         const errorData = await response.json();
         console.error("Error al crear el usuario: ", errorData);
