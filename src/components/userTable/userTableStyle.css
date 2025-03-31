@@ -18,7 +18,7 @@
 
 .user-table thead tr {
   background-color: #473524;
-  color: #FFF;
+  color: #fff;
   text-align: center;
   font-weight: bold;
 }
@@ -34,7 +34,7 @@
   border-bottom: 1px solid #888;
 }
 .user-table tbody tr:nth-of-type(even) {
-  background-color: #D7C9B9;
+  background-color: #d7c9b9;
   font-weight: 600;
 }
 
@@ -71,23 +71,45 @@
 }
 
 @media (max-width: 768px) {
-  .user-table {
-    font-size: 16px;
+  .user-table-container {
+    display: block;
+    overflow-x: auto;
   }
 
-  .edit-buton,
-  .delete-buton {
-    padding: 6px 10px;
+  .user-table {
+    font-size: 0.9rem;
+    width: max-content; /* Se adapta al contenido */
+  }
+
+  .user-table th,
+  .user-table td {
+    padding: 8px 10px;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    width: 35px;
+    height: 35px;
+    padding: 6px;
   }
 }
 
+/* Celulares y pantallas pequeñas */
 @media (max-width: 480px) {
   .user-table {
-    font-size: 14px;
+    font-size: 0.85rem;
+    min-width: 500px; 
   }
 
-  .edit-buton,
-  .delete-buton {
-    padding: 5px 8px;
+  .edit-btn,
+  .delete-btn {
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+  }
+
+  .user-table th,
+  .user-table td {
+    padding: 6px 8px;
   }
 }

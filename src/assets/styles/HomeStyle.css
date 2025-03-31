@@ -63,3 +63,147 @@
   background-color: #d6a644;
   width: 250px;
 }
+
+.user-btn:hover,
+.product-btn:hover,
+.close-btn:hover {
+  opacity: 0.9;
+}
+
+.container-filter {
+  max-width: 100%;
+  width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  margin-top: 10px;
+}
+
+.container-filter h2 {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  color: #000;
+  margin: 0;
+}
+
+.container-filter .form-container {
+  margin-bottom: 15px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+}
+
+.container-filter .form-container label {
+  display: block;
+  margin-bottom: 10px;
+  color: #000;
+  text-align: left;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.container-filter .form-container input,
+.container-filter .form-container select {
+  width: 100%;
+  padding: 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #000;
+}
+
+.container-filter .form-container input:hover,
+.container-filter .form-container select:focus {
+  border-color: #bba4c0;
+  outline: none;
+  box-shadow: 0 0 5px rgba(194, 135, 228, 0.5);
+}
+
+.search-btn {
+  display: inline-block;
+  width: 50%;
+  padding: 10px;
+  background-color: #473524;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
+  border: none;
+  font-weight: bold;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.search-btn:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .user-btn,
+  .product-btn,
+  .close-btn {
+    width: 80%;
+    font-size: 0.9rem;
+  }
+
+  .close-btn {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .container-filter {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .container-filter h2 {
+    font-size: 1.3rem;
+  }
+
+  .search-btn {
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .user-btn,
+  .product-btn,
+  .close-btn {
+    width: 100%;
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+  .close-btn {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .container-filter {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .search-btn {
+    width: 100%;
+    font-size: 1rem;
+  }
+}

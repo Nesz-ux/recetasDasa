@@ -72,23 +72,45 @@
 }
 
 @media (max-width: 768px) {
+  .product-container {
+    display: block;
+    overflow-x: auto; 
+  }
+
   .product-table {
-    font-size: 16px;
+    font-size: 0.9rem;
+    width: max-content; /* Se ajusta según el contenido */
+  }
+
+  .product-table th,
+  .product-table td {
+    padding: 8px 10px;
   }
 
   .edit-btn,
   .delete-btn {
-    padding: 6px 10px;
+    width: 35px;
+    height: 35px;
+    padding: 6px;
   }
 }
 
+/* Celulares y pantallas pequeñas */
 @media (max-width: 480px) {
   .product-table {
-    font-size: 14px;
+    font-size: 0.85rem;
+    min-width: 500px; /* Reduce aún más el ancho mínimo */
   }
 
   .edit-btn,
   .delete-btn {
-    padding: 5px 8px;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+  }
+
+  .product-table th,
+  .product-table td {
+    padding: 6px 8px;
   }
 }
