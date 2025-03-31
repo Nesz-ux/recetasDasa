@@ -8,7 +8,7 @@ import "./productTableStyle.css";
 import * as TbIcons from "react-icons/tb";
 import * as TiIcons from "react-icons/ti";
 
-const productDataTable: React.FC = () => {
+const ProductDataTable: React.FC = () => {
   interface Product {
     _id: string;
     nombre_producto: string;
@@ -26,7 +26,7 @@ const productDataTable: React.FC = () => {
 
   const [product, setProduct] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<String>("");
+  const [error, setError] = useState<string>("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -49,6 +49,50 @@ const productDataTable: React.FC = () => {
     };
     fetchProducts();
   }, []);
+
+  const handleEditProduct = (product: Product) => {
+    navigate("/edit-product", { state: { product } });
+  };
+
+  const token = localStorage.getItem("token");
+
+  const handleDelete = async (id: string) => {
+    const confirmDelete = window.confirm(
+      "¿Estas seguro de que deseas eliminar este usuario?"
+    );
+    if (!confirmDelete) return;
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/products/delete/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        setProduct((prevProduct) =>
+          prevProduct.filter((product) => product._id !== id)
+        );
+        alert("Usuario eliminado exitosamente");
+      } else {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Error al eliminar el usuario");
+      }
+    } catch (error) {
+      console.error("Error al eliminar el usuario: ", error);
+      alert("No se pudo eliminar el usuario. Intenta de nuevo más tarde");
+    }
+  };
+
+  if (loading) {
+    return <p>Cargando Productos ...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
 
   return (
     <div className="product-container">
@@ -73,11 +117,17 @@ const productDataTable: React.FC = () => {
                 <td>{product.presentacion}</td>
                 <td>{product.idioma}</td>
                 <td>
-                  <button className="edit-btn">
+                  <button
+                    className="edit-btn"
+                    onClick={() => handleEditProduct(product)}
+                  >
                     <TbIcons.TbUserEdit size={25} />
                   </button>
 
-                  <button className="delete-btn">
+                  <button
+                    className="delete-btn"
+                    onClick={() => handleDelete(product._id)}
+                  >
                     <TiIcons.TiDelete size={25} />
                   </button>
                 </td>
@@ -94,4 +144,4 @@ const productDataTable: React.FC = () => {
   );
 };
 
-export default productDataTable;
+export default ProductDataTable;

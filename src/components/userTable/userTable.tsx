@@ -8,7 +8,7 @@ import "./userTableStyle.css";
 import * as TbUser from "react-icons/tb";
 import * as TiIcons from "react-icons/ti";
 
-const userDatatable: React.FC = () => {
+const UserDatatable: React.FC = () => {
   interface User {
     _id: string;
     username: string;
@@ -66,7 +66,7 @@ const userDatatable: React.FC = () => {
         throw new Error(errorData.message || "Error al eliminar el usuario");
       }
     } catch (error) {
-      console.error("Error al eliminar el usuario");
+      console.error("Error al eliminar el usuario: ", error);
       alert("No se pudo eliminarel usuario. Intenta de nuevo");
     }
   };
@@ -131,4 +131,4 @@ const userDatatable: React.FC = () => {
   );
 };
 
-export default userDatatable;
+export default UserDatatable;

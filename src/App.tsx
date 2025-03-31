@@ -6,6 +6,7 @@ import ManageUsers from "./pages/Users/ManageUsers";
 import EditUser from "./pages/Users/EditUser";
 import ManageProduct from "./pages/Product/ManageProduct";
 import AddProduct from "./pages/Product/AddProduct";
+import EditProduct from "./pages/Product/EditProduct";
 import "./App.css";
 import { useEffect, useState } from "react";
 
@@ -36,6 +37,8 @@ function App() {
           <Route path="/edit-user" element={<EditUser />} />
           <Route path="/manage-product" element={<ManageProduct />} />
           <Route path="/add-product" element={<AddProduct />} />
+          <Route path="/edit-product" element={<EditProduct />} />
+
         </Routes>
       </div>
     </Router>

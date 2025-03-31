@@ -3,9 +3,9 @@
   src: url("../fonts/Veneer.ttf") format(truetype);
 }
 
-.edit-user {
+.edit-product {
   width: 100%;
-  max-width: 600px;
+  max-width: 500px;
   margin: 50px auto;
   padding: 20px;
   background-color: #fff;
@@ -14,7 +14,7 @@
   margin-top: 30px;
 }
 
-.edit-user h2 {
+.edit-product h2 {
   text-align: center;
   margin-bottom: 20px;
   font-family: "Veneer", sans-serif;
@@ -22,13 +22,13 @@
   color: #000;
 }
 
-.edit-user-form .form-group {
+.edit-product-form .form-group {
   margin-bottom: 15px;
   font-family: "Poppins", sans-serif;
   font-size: 1rem;
 }
 
-.edit-user-form .form-group label {
+.edit-product-form .form-group label {
   display: block;
   margin-bottom: 5px;
   color: #000;
@@ -37,8 +37,8 @@
   margin-left: 5px;
 }
 
-.edit-user-form .form-group input,
-.edit-user-form .form-group select {
+.edit-product-form .form-group input,
+.edit-product-form .form-group select {
   width: 100%;
   padding: 10px;
   font-family: "Poppins", sans-serif;
@@ -50,8 +50,8 @@
   color: #000;
 }
 
-.edit-user-form .form-group input:hover,
-.edit-user-form .form-group select:focus {
+.edit-product-form .form-group input:hover,
+.edit-product-form .form-group select:focus {
   border-color: #bba4c0;
   outline: none;
   box-shadow: 0 0 5px rgba(194, 135, 228, 0.5);
@@ -78,14 +78,14 @@
 }
 
 @media (max-width: 768px) {
-  .create-user {
+  .create-product {
     width: 90%;
     padding: 10px;
   }
 }
 
 @media (max-width: 480px) {
-  .create-user {
+  .create-product {
     padding: 10px;
     width: 90%;
   }

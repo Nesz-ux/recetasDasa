@@ -167,7 +167,6 @@ const AddProduct: React.FC = () => {
               name="url_especificacion"
               value={productData.url_especificacion}
               onChange={handleChangeData}
-              required
             />
           </div>
 
@@ -179,7 +178,6 @@ const AddProduct: React.FC = () => {
               name="url_etiqueta_gral"
               value={productData.url_etiqueta_gral}
               onChange={handleChangeData}
-              required
             />
           </div>
 
@@ -191,7 +189,6 @@ const AddProduct: React.FC = () => {
               name="url_esp_con_impresion"
               value={productData.url_esp_con_impresion}
               onChange={handleChangeData}
-              required
             />
           </div>
 
@@ -205,7 +202,6 @@ const AddProduct: React.FC = () => {
               name="url_esp_sin_impresion"
               value={productData.url_esp_sin_impresion}
               onChange={handleChangeData}
-              required
             />
           </div>
 
@@ -217,7 +213,6 @@ const AddProduct: React.FC = () => {
               name="url_sprand"
               value={productData.url_sprand}
               onChange={handleChangeData}
-              required
             />
           </div>
 
@@ -229,7 +224,6 @@ const AddProduct: React.FC = () => {
               name="url_growlink"
               value={productData.url_growlink}
               onChange={handleChangeData}
-              required
             />
           </div>
 
