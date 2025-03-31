@@ -14,11 +14,6 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.light-mode {
-  background-color: #f0f0f0;
-  color: #333;
-}
-
 .title {
   font-family: "Veneer", sans-serif;
   font-weight: 800;
@@ -26,6 +21,7 @@
   margin-bottom: 30px;
   margin-left: 7px;
   transition: color 0.3s ease;
+  color: #333;
 }
 
 .title-container {
@@ -57,3 +53,13 @@
   width: 250px;
 }
 
+.close-btn {
+  padding: 8px 12px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  background-color: #d6a644;
+  width: 250px;
+}

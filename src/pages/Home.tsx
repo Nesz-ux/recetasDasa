@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
+  const rol = localStorage.getItem("rol");
 
   //Navegacion
   const handleAddUser = () => {
@@ -16,18 +17,31 @@ const Home: React.FC = () => {
     navigate("/manage-product");
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("rol");
+    navigate("/");
+  };
+
   return (
     <div className="container">
       <div className="title-container">
         <img src={LogoDasavena} alt="LogoDasavena" />
         <h1 className="title">Información de Producto terminado</h1>
       </div>
-      <button className="user-btn" onClick={handleAddUser}>
+      {rol === "Administrador" && (
+        <button className="user-btn" onClick={handleAddUser}>
           Administrar Usuarios
         </button>
-      <button className="product-btn" onClick={handleAddProduct}>
+      )}
+      {rol === "Administrador" && (
+        <button className="product-btn" onClick={handleAddProduct}>
           Agregar Producto
         </button>
+      )}
+      <button className="close-btn" onClick={handleLogout}>
+        Cerrar Sesión
+      </button>
     </div>
   );
 };

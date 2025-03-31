@@ -75,14 +75,14 @@ const ProductDataTable: React.FC = () => {
         setProduct((prevProduct) =>
           prevProduct.filter((product) => product._id !== id)
         );
-        alert("Usuario eliminado exitosamente");
+        alert("Producto eliminado exitosamente");
       } else {
         const errorData = await response.json();
-        throw new Error(errorData.message || "Error al eliminar el usuario");
+        throw new Error(errorData.message || "Error al eliminar el producto");
       }
     } catch (error) {
-      console.error("Error al eliminar el usuario: ", error);
-      alert("No se pudo eliminar el usuario. Intenta de nuevo más tarde");
+      console.error("Error al eliminar el producto: ", error);
+      alert("No se pudo eliminar el producto. Intenta de nuevo más tarde");
     }
   };
 
