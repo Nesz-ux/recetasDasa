@@ -38,26 +38,53 @@ const Home: React.FC = () => {
     }));
   };
 
+  const getDescripcion = (
+    lista: { value: string; description: string }[],
+    value: string
+  ): string => {
+    const itemEncontrado = lista.find((item) => item.value === value);
+    return itemEncontrado ? itemEncontrado.description : value;
+  };
+
   const fetchFilteredProducts = async () => {
+    // Verifica que solo los selects estén llenos (excluyendo nombre_producto)
+    const { categoria, receta, presentacion, idioma } = productData;
+    const allSelectsFilled = [categoria, receta, presentacion, idioma].every(
+      (value) => value.trim() !== ""
+    );
+
+    if (!allSelectsFilled) {
+      alert(
+        "Por favor, selecciona una opción en todos los campos antes de buscar."
+      );
+      return;
+    }
+
     try {
       const queryParams = new URLSearchParams(
-        Object.entries(productData).filter(([, value]) => value) // Filtrar valores vacíos
+        Object.entries(productData).filter(
+          ([key, value]) => key !== "nombre_producto" || value.trim() !== ""
+        )
       ).toString();
 
       const response = await fetch(
         `${API_BASE_URL}/products/filter?${queryParams}`
       );
 
-      console.log("Respuesta de la API:", response);
-
       if (!response.ok) {
         throw new Error(`Error ${response.status}: ${response.statusText}`);
       }
 
       const data = await response.json();
+
+      if (data.length === 0) {
+        alert("No se encontraron productos con los filtros seleccionados.");
+      }
+
       setFilteredProducts(data);
     } catch (error) {
-      console.error("Error al obtener productos: ", error);
+      console.error("Error: ", error);
+      alert("Producto No Encontrado");
     }
   };
 
@@ -104,6 +131,7 @@ const Home: React.FC = () => {
             id="categoria"
             value={productData.categoria}
             onChange={handleChangeData}
+            required
           >
             <option value="">Selecciona una Categoría</option>
             {Categoria.map((item, index) => (
@@ -121,6 +149,7 @@ const Home: React.FC = () => {
             id="receta"
             value={productData.receta}
             onChange={handleChangeData}
+            required
           >
             <option value="">Selecciona una Receta</option>
             {Receta.map((item, index) => (
@@ -138,6 +167,7 @@ const Home: React.FC = () => {
             id="presentacion"
             value={productData.presentacion}
             onChange={handleChangeData}
+            required
           >
             <option value="">Selecciona una Presentación</option>
             {Presentacion.map((item, index) => (
@@ -155,6 +185,7 @@ const Home: React.FC = () => {
             id="idioma"
             value={productData.idioma}
             onChange={handleChangeData}
+            required
           >
             <option value="">Selecciona un Idioma</option>
             {Idioma.map((item, index) => (
@@ -187,10 +218,10 @@ const Home: React.FC = () => {
               {filteredProducts.map((producto, index) => (
                 <tr key={index}>
                   <td>{producto.nombre_producto}</td>
-                  <td>{producto.categoria}</td>
-                  <td>{producto.receta}</td>
-                  <td>{producto.presentacion}</td>
-                  <td>{producto.idioma}</td>
+                  <td>{getDescripcion(Categoria, producto.categoria)}</td>
+                  <td>{getDescripcion(Receta, producto.receta)}</td>
+                  <td>{getDescripcion(Presentacion, producto.presentacion)}</td>
+                  <td>{getDescripcion(Idioma, producto.idioma)}</td>
                   <td>
                     <button className="view-btn">
                       <SlIcon.SlEye size={20} />

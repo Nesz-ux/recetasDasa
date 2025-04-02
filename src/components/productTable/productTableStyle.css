@@ -40,7 +40,7 @@
 }
 
 .product-table tbody tr:last-of-type {
-  border-bottom: 3px solid #888;
+  border-bottom: 1px solid #ccc;
 }
 
 .edit-btn,

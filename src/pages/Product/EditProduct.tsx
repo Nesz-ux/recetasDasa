@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { API_BASE_URL } from "../../utils/config";
 import "../../assets/styles/EditProductStyle.css";
+import { Categoria, Idioma, Presentacion, Receta } from "./ProductList";
 
 const EditProduct: React.FC = () => {
   const navigate = useNavigate();
@@ -84,38 +85,74 @@ const EditProduct: React.FC = () => {
 
         <div className="form-group">
           <label htmlFor="categoria">Categoría</label>
-          <input
-            type="text"
-            id="categoria"
+          <select
             name="categoria"
+            id="categoria"
             value={formEditProduct.categoria}
             onChange={handleChange}
             required
-          />
+          >
+            <option value=""></option>
+            {(Categoria || []).map((item, index) => (
+              <option key={index} value={item.value}>
+                {item.description}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="receta">Receta</label>
+          <select
+            name="receta"
+            id="receta"
+            value={formEditProduct.receta}
+            onChange={handleChange}
+            required
+          >
+            <option value=""></option>
+            {(Receta || []).map((item, index) => (
+              <option key={index} value={item.value}>
+                {item.description}
+              </option>
+            ))}
+          </select>
         </div>
 
         <div className="form-group">
           <label htmlFor="presentacion">Presentación</label>
-          <input
-            type="text"
-            id="presentacion"
+          <select
             name="presentacion"
+            id="presentacion"
             value={formEditProduct.presentacion}
             onChange={handleChange}
             required
-          />
+          >
+            <option value=""></option>
+            {(Presentacion || []).map((item, index) => (
+              <option key={index} value={item.value}>
+                {item.description}
+              </option>
+            ))}
+          </select>
         </div>
 
         <div className="form-group">
           <label htmlFor="idioma">Idioma</label>
-          <input
-            type="text"
-            id="idioma"
+          <select
             name="idioma"
+            id="idioma"
             value={formEditProduct.idioma}
             onChange={handleChange}
             required
-          />
+          >
+            <option value=""></option>
+            {(Idioma || []).map((item, index) => (
+              <option key={index} value={item.value}>
+                {item.description}
+              </option>
+            ))}
+          </select>
         </div>
 
         <div className="form-group">

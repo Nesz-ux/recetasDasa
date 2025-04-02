@@ -7,6 +7,12 @@ import "./productTableStyle.css";
 //Import Icons
 import * as TbIcons from "react-icons/tb";
 import * as TiIcons from "react-icons/ti";
+import {
+  Categoria,
+  Receta,
+  Presentacion,
+  Idioma,
+} from "../../pages/Product/ProductList";
 
 const ProductDataTable: React.FC = () => {
   interface Product {
@@ -28,6 +34,14 @@ const ProductDataTable: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>("");
   const navigate = useNavigate();
+
+  const getDescripcion = (
+    lista: { value: string; description: string }[],
+    value: string
+  ): string => {
+    const itemEncontrado = lista.find((item) => item.value === value);
+    return itemEncontrado ? itemEncontrado.description : value; // Si no encuentra, devuelve el valor original
+  };
 
   useEffect(() => {
     const fetchProducts = async (): Promise<void> => {
@@ -112,10 +126,10 @@ const ProductDataTable: React.FC = () => {
             product.map((product) => (
               <tr key={product._id}>
                 <td>{product.nombre_producto}</td>
-                <td>{product.categoria}</td>
-                <td>{product.receta}</td>
-                <td>{product.presentacion}</td>
-                <td>{product.idioma}</td>
+                <td>{getDescripcion(Categoria, product.categoria)}</td>
+                <td>{getDescripcion(Receta, product.receta)}</td>
+                <td>{getDescripcion(Presentacion, product.presentacion)}</td>
+                <td>{getDescripcion(Idioma, product.idioma)}</td>
                 <td>
                   <button
                     className="edit-btn"

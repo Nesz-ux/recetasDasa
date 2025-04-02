@@ -154,11 +154,11 @@
   overflow-x: auto;
   margin-top: 10px;
   display: flex;
-  align-content: center;
 }
 
 .results-table {
   width: 100%;
+  min-width: 600px;
   border-collapse: collapse;
   font-size: 1rem;
   color: #000;
@@ -174,11 +174,18 @@
 
 .results-table th,
 .results-table td {
+  padding: 3px 4px;
+  text-align: center;
   white-space: nowrap;
 }
 
+.results-table tbody tr {
+  border-bottom: 1px solid #ccc
+}
+
 .results-table tbody tr:nth-of-type(even) {
-  border-bottom: 1px solid #888;
+  background-color: #d7c9b9;
+  font-weight: 500
 }
 
 .results-table tbody tr:last-of-type {
