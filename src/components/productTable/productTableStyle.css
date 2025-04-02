@@ -74,12 +74,12 @@
 @media (max-width: 768px) {
   .product-container {
     display: block;
-    overflow-x: auto; 
+    overflow-x: auto;
   }
 
   .product-table {
     font-size: 0.9rem;
-    width: max-content; /* Se ajusta según el contenido */
+    width: max-content;
   }
 
   .product-table th,

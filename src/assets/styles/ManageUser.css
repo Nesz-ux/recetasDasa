@@ -43,7 +43,7 @@
 }
 
 .back-button {
-  background-color: #D6A644;
+  background-color: #d6a644;
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -105,7 +105,7 @@
     padding: 10px;
   }
 
-  .add-user-button{
-   margin-top: 45px; 
+  .add-user-button {
+    margin-top: 45px;
   }
 }

@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import "../assets/styles/HomeStyle.css";
-//import images
 import LogoDasavena from "../assets/icons/LogoDasavena.png";
-//Import Packages
 import { useNavigate } from "react-router-dom";
-//import Data
 import { Categoria, Receta, Presentacion, Idioma } from "./Product/ProductList";
+import { API_BASE_URL } from "../utils/config";
+import * as SlIcon from "react-icons/sl";
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -17,13 +16,17 @@ const Home: React.FC = () => {
     receta: "",
     presentacion: "",
     idioma: "",
-    url_especificacion: "",
-    url_etiqueta_gral: "",
-    url_esp_con_impresion: "",
-    url_esp_sin_impresion: "",
-    url_sprand: "",
-    url_growlink: "",
   });
+
+  const [filteredProducts, setFilteredProducts] = useState<
+    {
+      nombre_producto: string;
+      categoria: string;
+      receta: string;
+      presentacion: string;
+      idioma: string;
+    }[]
+  >([]);
 
   const handleChangeData = (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -35,18 +38,27 @@ const Home: React.FC = () => {
     }));
   };
 
-  //Navegacion
-  const handleAddUser = () => {
-    navigate("/manage-user");
-  };
-  const handleAddProduct = () => {
-    navigate("/manage-product");
-  };
+  const fetchFilteredProducts = async () => {
+    try {
+      const queryParams = new URLSearchParams(
+        Object.entries(productData).filter(([, value]) => value) // Filtrar valores vacíos
+      ).toString();
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("rol");
-    navigate("/");
+      const response = await fetch(
+        `${API_BASE_URL}/products/filter?${queryParams}`
+      );
+
+      console.log("Respuesta de la API:", response);
+
+      if (!response.ok) {
+        throw new Error(`Error ${response.status}: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      setFilteredProducts(data);
+    } catch (error) {
+      console.error("Error al obtener productos: ", error);
+    }
   };
 
   return (
@@ -58,22 +70,33 @@ const Home: React.FC = () => {
 
       <div>
         {rol === "Administrador" && (
-          <button className="user-btn" onClick={handleAddUser}>
+          <button className="user-btn" onClick={() => navigate("/manage-user")}>
             Administrar Usuarios
           </button>
         )}
         {rol === "Administrador" && (
-          <button className="product-btn" onClick={handleAddProduct}>
+          <button
+            className="product-btn"
+            onClick={() => navigate("/manage-product")}
+          >
             Agregar Producto
           </button>
         )}
-        <button className="close-btn" onClick={handleLogout}>
+        <button
+          className="close-btn"
+          onClick={() => {
+            localStorage.removeItem("token");
+            localStorage.removeItem("rol");
+            navigate("/");
+          }}
+        >
           Cerrar Sesión
         </button>
       </div>
 
       <div className="container-filter">
         <h2>Buscar Producto</h2>
+
         <div className="form-container">
           <label htmlFor="categoria">Categoría</label>
           <select
@@ -81,7 +104,6 @@ const Home: React.FC = () => {
             id="categoria"
             value={productData.categoria}
             onChange={handleChangeData}
-            required
           >
             <option value="">Selecciona una Categoría</option>
             {Categoria.map((item, index) => (
@@ -99,7 +121,6 @@ const Home: React.FC = () => {
             id="receta"
             value={productData.receta}
             onChange={handleChangeData}
-            required
           >
             <option value="">Selecciona una Receta</option>
             {Receta.map((item, index) => (
@@ -117,7 +138,6 @@ const Home: React.FC = () => {
             id="presentacion"
             value={productData.presentacion}
             onChange={handleChangeData}
-            required
           >
             <option value="">Selecciona una Presentación</option>
             {Presentacion.map((item, index) => (
@@ -135,9 +155,8 @@ const Home: React.FC = () => {
             id="idioma"
             value={productData.idioma}
             onChange={handleChangeData}
-            required
           >
-            <option value="">Selecciona una Idioma</option>
+            <option value="">Selecciona un Idioma</option>
             {Idioma.map((item, index) => (
               <option key={index} value={item.value}>
                 {item.description}
@@ -146,7 +165,42 @@ const Home: React.FC = () => {
           </select>
         </div>
 
-        <button className="search-btn">Buscar</button>
+        <button className="search-btn" onClick={fetchFilteredProducts}>
+          Buscar
+        </button>
+
+        <h2>Resultados</h2>
+
+        <div className="results-container">
+          <table className="results-table">
+            <thead>
+              <tr>
+                <th>Producto</th>
+                <th>Categoría</th>
+                <th>Receta</th>
+                <th>Presentación</th>
+                <th>Idioma</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredProducts.map((producto, index) => (
+                <tr key={index}>
+                  <td>{producto.nombre_producto}</td>
+                  <td>{producto.categoria}</td>
+                  <td>{producto.receta}</td>
+                  <td>{producto.presentacion}</td>
+                  <td>{producto.idioma}</td>
+                  <td>
+                    <button className="view-btn">
+                      <SlIcon.SlEye size={20} />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

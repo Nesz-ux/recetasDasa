@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { API_BASE_URL } from "../../utils/config";
 import "../../assets/styles/EditUserStyle.css";
-import "../../assets/styles/AddUserStyle.css"
+import "../../assets/styles/AddUserStyle.css";
 
 const EditUser: React.FC = () => {
   const navigate = useNavigate();

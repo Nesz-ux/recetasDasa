@@ -132,7 +132,7 @@
   display: inline-block;
   width: 50%;
   padding: 10px;
-  background-color: #473524;
+  background-color: #3d7e31;
   color: #fff;
   font-family: "Poppins", sans-serif;
   font-size: 1.1rem;
@@ -142,9 +142,64 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-top: 20px;
+  margin-bottom: 50px;
 }
 
 .search-btn:hover {
+  opacity: 0.9;
+}
+
+.results-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 10px;
+  display: flex;
+  align-content: center;
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+  color: #000;
+  font-family: "Poppins", sans-serif;
+}
+
+.results-table thead tr {
+  background-color: #473524;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+}
+
+.results-table th,
+.results-table td {
+  white-space: nowrap;
+}
+
+.results-table tbody tr:nth-of-type(even) {
+  border-bottom: 1px solid #888;
+}
+
+.results-table tbody tr:last-of-type {
+  border-bottom: 2px solid #888;
+}
+
+.view-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  background-color: #3d7e31;
+}
+
+.view-btn:hover {
   opacity: 0.9;
 }
 
