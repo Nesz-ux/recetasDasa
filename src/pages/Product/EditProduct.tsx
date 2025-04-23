@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { API_BASE_URL } from "../../utils/config";
 import "../../assets/styles/EditProductStyle.css";
-import { Categoria, Idioma, Presentacion, Receta } from "./ProductList";
+import { Categoria, Idioma, Presentacion} from "./ProductList";
 import { RecetasPorCategoria } from "./ProductList";
 
 const EditProduct: React.FC = () => {
