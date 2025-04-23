@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../assets/styles/AddUserStyle.css";
 import { Categoria, Receta, Presentacion, Idioma } from "./ProductList";
+import { RecetasPorCategoria } from "./ProductList";
 import { API_BASE_URL } from "../../utils/config";
 
 const AddProduct: React.FC = () => {
   const navigate = useNavigate();
+
+  const [recetasFiltradas, setRecetasFiltradas] = useState<{ value: string; description: string }[]>([]);
 
   const [productData, setProductData] = useState({
     nombre_producto: "",
@@ -21,15 +24,26 @@ const AddProduct: React.FC = () => {
     url_growlink: "",
   });
 
+  
   const handleChangeData = (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = event.target;
-    setProductData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    if (name === "categoria") {
+      setRecetasFiltradas(RecetasPorCategoria[value] || []);
+      setProductData((prevData) => ({
+        ...prevData,
+        categoria: value,
+        receta: "",
+      }));
+    } else {
+      setProductData((prevData) => ({
+        ...prevData,
+        [name]: value,
+      }));
+    }
   };
+
 
   const token = localStorage.getItem("token");
 
@@ -115,7 +129,7 @@ const AddProduct: React.FC = () => {
               required
             >
               <option value="">Selecciona una Receta</option>
-              {Receta.map((item, index) => (
+              {recetasFiltradas.map((item, index) => (
                 <option key={index} value={item.value}>
                   {item.description}
                 </option>

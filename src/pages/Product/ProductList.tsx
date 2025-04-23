@@ -69,3 +69,30 @@ export const Idioma = [
     description: "Ingles",
   },
 ];
+
+export const RecetasPorCategoria: Record<string, { value: string; description: string }[]> = {
+  granola: [
+    { value: "original", description: "Original" },
+    { value: "ligera", description: "Ligera" },
+    { value: "chocolate", description: "Chocolate" },
+    { value: "vainilla", description: "Vainilla" },
+    { value: "maple", description: "Maple" },
+  ],
+  barra_crujiente: [
+    { value: "original", description: "Original" },
+    { value: "ligera", description: "Ligera" },
+    { value: "chocolate", description: "Chocolate" },
+  ],
+  cereal: [
+    { value: "arandanos", description: "Arándanos" },
+    { value: "quinoa", description: "Quinoa" },
+    { value: "chocolate", description: "Chocolate" },
+    { value: "maple", description: "Maple" },
+  ],
+  barra_kid: [
+    { value: "chispas", description: "Chispas de Chocolate" },
+  ],
+  otra_categoria: [
+    { value: "especial", description: "Especial" },
+  ],
+};

@@ -3,9 +3,13 @@ import "../assets/styles/HomeStyle.css";
 import LogoDasavena from "../assets/icons/LogoDasavena.png";
 import { useNavigate } from "react-router-dom";
 import { Categoria, Receta, Presentacion, Idioma } from "./Product/ProductList";
+import { RecetasPorCategoria } from "./Product/ProductList";
 import { API_BASE_URL } from "../utils/config";
 import * as SlIcon from "react-icons/sl";
 import ProductModal from "./Product/ProductModal";
+
+
+
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -24,6 +28,9 @@ const Home: React.FC = () => {
     url_sprand: string;
     url_growlink: string;
   }
+
+  const [recetasFiltradas, setRecetasFiltradas] = useState<{ value: string; description: string }[]>([]);
+
 
   const [productData, setProductData] = useState<Product>({
     nombre_producto: "",
@@ -55,10 +62,20 @@ const Home: React.FC = () => {
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = event.target;
-    setProductData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+  
+    if (name === "categoria") {
+      setRecetasFiltradas(RecetasPorCategoria[value] || []);
+      setProductData((prevData) => ({
+        ...prevData,
+        categoria: value,
+        receta: "", // Reinicia receta cuando cambia la categoría
+      }));
+    } else {
+      setProductData((prevData) => ({
+        ...prevData,
+        [name]: value,
+      }));
+    }
   };
 
   const getDescripcion = (
@@ -139,24 +156,32 @@ const Home: React.FC = () => {
       <div className="container-filter">
         <h2>Buscar Producto</h2>
         {["categoria", "receta", "presentacion", "idioma"].map((campo, index) => (
-          <div className="form-container" key={index}>
-            <label htmlFor={campo}>{campo.charAt(0).toUpperCase() + campo.slice(1)}</label>
-            <select
-              name={campo}
-              id={campo}
-              value={productData[campo as keyof Product]}
-              onChange={handleChangeData}
-              required
-            >
-              <option value="">Selecciona una opción</option>
-              {(campo === "categoria" ? Categoria : campo === "receta" ? Receta : campo === "presentacion" ? Presentacion : Idioma).map((item, idx) => (
-                <option key={idx} value={item.value}>
-                  {item.description}
-                </option>
-              ))}
-            </select>
-          </div>
-        ))}
+        <div className="form-container" key={index}>
+          <label htmlFor={campo}>{campo.charAt(0).toUpperCase() + campo.slice(1)}</label>
+          <select
+            name={campo}
+            id={campo}
+            value={productData[campo as keyof Product]}
+            onChange={handleChangeData}
+            required
+          >
+            <option value="">Selecciona una opción</option>
+            {(campo === "categoria"
+              ? Categoria
+              : campo === "receta"
+              ? recetasFiltradas
+              : campo === "presentacion"
+              ? Presentacion
+              : Idioma
+            ).map((item, idx) => (
+              <option key={idx} value={item.value}>
+                {item.description}
+              </option>
+            ))}
+          </select>
+        </div>
+      ))}
+
         <button className="search-btn" onClick={fetchFilteredProducts}>Buscar</button>
         <h2>Resultados</h2>
         <div className="results-container">

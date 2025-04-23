@@ -3,11 +3,16 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { API_BASE_URL } from "../../utils/config";
 import "../../assets/styles/EditProductStyle.css";
 import { Categoria, Idioma, Presentacion, Receta } from "./ProductList";
+import { RecetasPorCategoria } from "./ProductList";
 
 const EditProduct: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { product } = location.state;
+
+  const [recetasFiltradas, setRecetasFiltradas] = useState(
+    RecetasPorCategoria[product.categoria] || []
+  );
 
   const [formEditProduct, setFormEditProduct] = useState({
     nombre_producto: product.nombre_producto,
@@ -23,14 +28,26 @@ const EditProduct: React.FC = () => {
     url_growlink: product.url_growlink,
   });
 
+  
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
-    setFormEditProduct({
-      ...formEditProduct,
-      [event.target.name]: event.target.value,
-    });
+    const { name, value } = event.target;
+    if (name === "categoria") {
+      setRecetasFiltradas(RecetasPorCategoria[value] || []);
+      setFormEditProduct((prev) => ({
+        ...prev,
+        categoria: value,
+        receta: "",
+      }));
+    } else {
+      setFormEditProduct((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+    }
   };
+
 
   const token = localStorage.getItem("token");
 
@@ -111,7 +128,7 @@ const EditProduct: React.FC = () => {
             required
           >
             <option value=""></option>
-            {(Receta || []).map((item, index) => (
+            {recetasFiltradas.map((item, index) => (
               <option key={index} value={item.value}>
                 {item.description}
               </option>
