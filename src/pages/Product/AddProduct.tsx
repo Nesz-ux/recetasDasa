@@ -22,6 +22,7 @@ const AddProduct: React.FC = () => {
     url_esp_sin_impresion: "",
     url_sprand: "",
     url_growlink: "",
+    codigo_barras: "",
   });
 
   
@@ -183,6 +184,19 @@ const AddProduct: React.FC = () => {
               onChange={handleChangeData}
             />
           </div>
+          <div className="form-group">
+            <label htmlFor="codigo_barras">Código de Barras</label>
+            <input
+              type="text"
+              name="codigo_barras"
+              id="codigo_barras"
+              placeholder="URL del Código de Barras (SharePoint)"
+              value={productData.codigo_barras}
+              onChange={handleChangeData}
+              required
+            />
+          </div>
+
 
           <div className="form-group">
             <label htmlFor="url_etiqueta_gral">Etiqueta General</label>

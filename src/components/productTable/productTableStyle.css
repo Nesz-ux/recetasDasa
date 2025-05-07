@@ -17,7 +17,7 @@
 }
 
 .product-table thead tr {
-  background-color: #473524;
+  background-color: #6A2C75; /* Pantone 33-16 C */
   color: #fff;
   text-align: center;
   font-weight: bold;
@@ -35,7 +35,7 @@
 }
 
 .product-table tbody tr:nth-of-type(even) {
-  background-color: #d7c9b9;
+  background-color: #BBA4C0;
   font-weight: 600;
 }
 
@@ -58,12 +58,12 @@
 }
 
 .edit-btn {
-  background-color: #d6a644;
+  background-color: #D6A644;
   color: #fff;
 }
 
 .delete-btn {
-  background-color: #aa4969;
+  background-color: #6A2C75;
   color: #fff;
 }
 .edit-btn:hover,

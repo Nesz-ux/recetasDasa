@@ -13,12 +13,13 @@
   text-align: left;
   min-width: 800px;
   font-family: "Poppins", sans-serif;
-  color: #000;
+  color: #000000;
 }
 
+/* Encabezado */
 .user-table thead tr {
-  background-color: #473524;
-  color: #fff;
+  background-color: #6A2C75; /* Pantone 33-16 C */
+  color: #FFFFFF;
   text-align: center;
   font-weight: bold;
 }
@@ -30,18 +31,21 @@
   white-space: nowrap;
 }
 
+/* Fila alterna */
+.user-table tbody tr:nth-of-type(even) {
+  background-color: #BBA4C0; /* Pantone P23-1 C */
+  font-weight: 600;
+}
+
 .user-table tbody tr {
   border-bottom: 1px solid #888;
-}
-.user-table tbody tr:nth-of-type(even) {
-  background-color: #d7c9b9;
-  font-weight: 600;
 }
 
 .user-table tbody tr:last-of-type {
   border-bottom: 2px solid #888;
 }
 
+/* Botones */
 .edit-buton,
 .delete-buton {
   display: inline-flex;
@@ -57,19 +61,22 @@
 }
 
 .edit-buton {
-  background-color: #d6a644;
-  color: #fff;
+  background-color: #D6A644; /* Pantone 7504C al 50% */
+  color: #000000;
 }
 
 .delete-buton {
-  background-color: #aa4969;
-  color: #fff;
+  background-color: #6A2C75; /* Pantone P703 C */
+  color: #FFFFFF;
 }
+
 .edit-buton:hover,
 .delete-buton:hover {
   opacity: 0.9;
+  filter: brightness(1.05);
 }
 
+/* Responsive */
 @media (max-width: 768px) {
   .user-table-container {
     display: block;
@@ -78,7 +85,7 @@
 
   .user-table {
     font-size: 0.9rem;
-    width: max-content; /* Se adapta al contenido */
+    width: max-content;
   }
 
   .user-table th,
@@ -94,7 +101,6 @@
   }
 }
 
-/* Celulares y pantallas pequeñas */
 @media (max-width: 480px) {
   .user-table {
     font-size: 0.85rem;

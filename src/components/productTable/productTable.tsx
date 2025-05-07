@@ -28,6 +28,7 @@ const ProductDataTable: React.FC = () => {
     url_esp_sin_impresion: string;
     url_sprand: string;
     url_growlink: string;
+    codigo_barras: string;
   }
 
   const [product, setProduct] = useState<Product[]>([]);
@@ -118,6 +119,7 @@ const ProductDataTable: React.FC = () => {
             <th>Receta</th>
             <th>Presentación</th>
             <th>Idioma</th>
+            <th>Codigo de Barras</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -130,6 +132,15 @@ const ProductDataTable: React.FC = () => {
                 <td>{getDescripcion(Receta, product.receta)}</td>
                 <td>{getDescripcion(Presentacion, product.presentacion)}</td>
                 <td>{getDescripcion(Idioma, product.idioma)}</td>
+                <td>
+                  {product.codigo_barras ? (
+                    <a href={product.codigo_barras} target="_blank" rel="noopener noreferrer">
+                      Ver código
+                    </a>
+                  ) : (
+                    "No disponible"
+                  )}
+                </td>
                 <td>
                   <button
                     className="edit-btn"

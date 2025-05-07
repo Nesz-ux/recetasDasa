@@ -26,6 +26,7 @@ const EditProduct: React.FC = () => {
     url_esp_sin_impresion: product.url_esp_sin_impresion,
     url_sprand: product.url_sprand,
     url_growlink: product.url_growlink,
+    codigo_barras: product.codigo_barras || "",
   });
 
   
@@ -179,6 +180,16 @@ const EditProduct: React.FC = () => {
             id="url_especificacion"
             name="url_especificacion"
             value={formEditProduct.url_especificacion}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="codigo_barras">URL Código de Barras</label>
+          <input
+            type="text"
+            id="codigo_barras"
+            name="codigo_barras"
+            value={formEditProduct.codigo_barras}
             onChange={handleChange}
           />
         </div>

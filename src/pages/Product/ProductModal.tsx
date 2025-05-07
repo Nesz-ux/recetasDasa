@@ -16,6 +16,7 @@ interface ProductModalProps {
     url_esp_sin_impresion: string;
     url_sprand: string;
     url_growlink: string;
+    codigo_barras: string;
   } | null;
   onClose: () => void;
 }
@@ -101,6 +102,12 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
               Etqiueta Growlink
             </button>
           )}
+          {product.codigo_barras && (
+            <button className="url-btn" onClick={() => openLink(product.codigo_barras)}>
+              Código de Barras
+            </button>
+          )}
+
         </div>
 
         <button className="close-button" onClick={onClose}>

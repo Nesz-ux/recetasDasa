@@ -12,7 +12,7 @@
   margin-bottom: 20px;
   font-family: "Veneer", sans-serif;
   font-size: 3rem;
-  color: #473524;
+  color: #6A2C75; /* Morado institucional */
   margin-top: -90px;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .add-user-button {
-  background-color: #473524;
+  background-color: #6A2C75; /* Morado institucional */
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -43,7 +43,7 @@
 }
 
 .back-button {
-  background-color: #d6a644;
+  background-color: #D6A644; /* dorado */
   color: #fff;
   padding: 10px 20px;
   border: none;
