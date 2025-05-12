@@ -33,6 +33,11 @@ const AddUserForm: React.FC = () => {
       return;
     }
 
+    if (!formData.rol) {
+      alert("Selecciona un rol antes de continuar.");
+      return;
+    }
+
     try {
       const response = await fetch(`${API_BASE_URL}/user/register`, {
         method: "POST",
@@ -105,7 +110,9 @@ const AddUserForm: React.FC = () => {
             id="rol"
             value={formData.rol}
             onChange={handleChangeData}
+            required
           >
+            <option value="">Selecciona un rol</option>
             <option value="Empleado">Empleado</option>
             <option value="Administrador">Administrador</option>
           </select>
@@ -121,11 +128,11 @@ const AddUserForm: React.FC = () => {
             onChange={handleChangeData}
             required
           />
-
-          <button type="submit" className="submit-buton">
-            Crear Usuario
-          </button>
         </div>
+
+        <button type="submit" className="submit-buton">
+          Crear Usuario
+        </button>
       </form>
     </div>
   );
